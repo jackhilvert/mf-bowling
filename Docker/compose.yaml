@@ -1,0 +1,25 @@
+# use root/example as user/password coredentials
+
+services: 
+##  bowling-app:
+ ##   build: 
+  ##    context: ./app
+   ## depends_on: 
+    ##  - bowling-db
+   ## ports: 
+    ##  - 3000:3000
+     ## - 35729:35729
+
+  bowling-db:
+    container_name: mf-bowling-db
+    image: mysql
+    volumes: 
+      - database:/data/db
+    restart: always
+    ports: 
+      - 3306:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: example
+
+volumes:
+  database: 
